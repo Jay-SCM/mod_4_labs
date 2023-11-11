@@ -1,0 +1,19 @@
+.NewsBox{
+    margin-top: 20px;
+    background-color: #8cff00;
+}
+/* styles for the news content */
+#NewsCont {
+    margin-top: 20px;
+    background-color: red;
+}
+/* styles for the news form */
+#NewsForm {
+    margin-top: 20px;
+    background-color: #00fff7;
+}
+ /* style buttons */
+.btn{
+    background-color: mediumorchid;
+    border-radius: 6px;
+}
