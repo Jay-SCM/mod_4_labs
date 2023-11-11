@@ -1,0 +1,84 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moment.js probs</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.32/moment-timezone-with-data.min.js"></script>
+    <style>
+        #problem2 {
+            color: #6f0080;
+        }
+        #problem3 {
+            color: #6aefbd;
+        }
+        #problem4 {
+            color: #75f629;
+        }
+        #problem5 {
+            color: #f1274b;
+        }
+    </style>
+</head>
+<body>
+<h1>Moment.js probs</h1>
+<!-- div for each prob and id for styles -->
+<div id="problem1"></div>
+<div id="problem2"></div>
+<div id="problem3"></div>
+<div id="problem4"></div>
+<div id="problem5"></div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () { // DOMContentLoaded event
+        // Problem 1: Calculate the number of days between your birthdate and the current date
+        const birthdate = moment("2000-01-01");  // birthdate
+        const currentDate = moment(); // current date
+        const daysDifference = currentDate.diff(birthdate, 'days');
+        document.getElementById('problem1').innerText = `1. Days between birthdate and current date: ${daysDifference} days`; // display days between birthdate and current date
+        // Problem 2: Display the number of years, months, and days between your birthdate and current date
+        const duration = moment.duration(currentDate.diff(birthdate)); // duration between birthdate and current date
+        const years = duration.years(); // years since birthdate
+        const months = duration.months();  // months since birthdate
+        const remainingDays = duration.days(); // days since birthdate
+        document.getElementById('problem2').innerText = `2. ${years} years, ${months} months, and ${remainingDays} days since birthdate`; // display years, months, and days since birthdate
+        // Problem 3: Given two dates, display the date closest to the current date
+        const date1 = moment("2022-01-01"); // date 1
+        const date2 = moment("2022-03-15"); // date 2
+        const closestDate = moment.min(date1, date2); // closest date to current date
+        document.getElementById('problem3').innerText = `3. Closest date to the current date: ${closestDate.format('YYYY-MM-DD')}`;  // display closest date
+        // Problem 4: Given two dates, display whether the first date is before or after the second date
+        const isBefore = date1.isBefore(date2);  // true if date 1 is before date 2
+        const comparisonResult = isBefore ? 'before' : 'after';
+        document.getElementById('problem4').innerText = `4. Date 1 is ${comparisonResult} Date 2`;
+        // Problem 5: Display the current time in London
+        const londonTime = moment().utcOffset(0).tz("Europe/London").format('YYYY-MM-DD HH:mm:ss');  // current time in London
+        document.getElementById('problem5').innerText = `5. Current time in London: ${londonTime}`;  // display current time in London
+    });
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
