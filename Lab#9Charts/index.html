@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAKE CHARTS</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+</head>
+<body>
+<div id="main" style="width: 900px;height:600px;"></div> <!-- div for the chart -->
+<script type="text/javascript">
+    // Fetch data from the Fake Store API
+    fetch('https://fakestoreapi.com/products') // data link
+        .then((response) => response.json()) // convert to JSON
+        .then((json) => { // process the JSON data
+            console.log(json); // log the result to the console
+            // Extract categories and count the number of items in each category
+            const categoryCounts = {}; // empty object
+            json.forEach((product) => { // product loop
+                const category = product.category;
+                if (categoryCounts[category]) {  // if category exists in object  increment the count
+                    categoryCounts[category]++;
+                } else { // else do the thing
+                    categoryCounts[category] = 1;}}); // if category does not exist add it and set count to 1
+            // Convert category counts to the format expected by ECharts
+            const categories = Object.keys(categoryCounts); // get the categories
+            const data = categories.map((category) => categoryCounts[category]); // get the counts
+            // Specify the configuration items and data for the chart
+            let options = { // make options object
+                title: { text: 'Fake Store Categories' }, // title
+                xAxis: { // define the x axis
+                    data: categories,},
+                yAxis: {}, // defien the y axis
+                series: [{
+                    name: '# products',
+                    type: 'bar',
+                    data: data,
+                    itemStyle: { // use bars
+                        color: function (params) { // function to change add color to the graph
+                            const colorList = ['#ff0000', '#0000ff', '#00ff00', '#ff69b4']; // list of colors used
+                            return colorList[params.dataIndex];},},}],}; // return the color from the list
+            let myChart = echarts.init(document.getElementById('main')); // initialize the chart
+            myChart.setOption(options);}); // set the options
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
