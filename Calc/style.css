@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Arial', sans-serif;
+}
+.calculator {
+    border: 8px solid #2f2d2d;
+    width: 60px;
+    box-sizing: border-box;
+    margin: 10px auto 0;
+    background-color: aqua;
+    overflow: hidden;
+    .calculator table {
+        width: 50%;
+    }
+}
+    @media (max-width: 20px) {
+        .Numbtn,
+        .Arith_OP,
+        .MAT_OP,
+        .BTN_OP,
+        .CLEAR {
+            margin: 1px;
+        }
+    }
+    .OutPut {
+        color: #0a0a0a;
+        font-size: 4.5rem;
+    }
+    .CLEAR {
+        background-color: #f80606;
+        width: 150px;
+        height: 50px;
+        font-size: 1.8rem;
+    }
+    .calculator .form-control {
+        height: 100px;
+        background-color: #4f4d4f;
+    }
+    .calculator .form-group {
+        margin-bottom: 0;
+    }
+    .calculator input[type=text] {
+        font-size: 3.38rem;
+        color: #0a0a0a;
+    }
+    .calculator .btn {
+        font-size: 1.8rem;
+        color: #8b8b8d;
+        width: 80px;
+        margin: 2px;
+    }
+    .calculator .btn-op {
+        background-color: #dc1991;
+    }
+    .Numbtn {
+        background-color: #0e0ebe;
+        width: 80px;
+        height: 40px;
+        font-size: 1.8rem;
+        margin: 2px;
+    }
+    .Arith_OP {
+        background-color: #a25905;
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+        margin: 2px;
+    }
+    .MAT_OP {
+        background-color: #6ae717;
+        width: 100px;
+        height: 45px;
+        font-size: 1.8rem;
+        margin: 2px;
+    }
+    .BTN_OP {
+        background-color: #f5be0d;
+        width: 100px;
+        height: 40px;
+        font-size: 1.8rem;
+        margin: 2px;
+    }

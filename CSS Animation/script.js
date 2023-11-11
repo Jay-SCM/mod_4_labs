@@ -1,17 +1,12 @@
 const slider = document.getElementById("slider");
 const slider2 = document.getElementById("slider2");
-
 let shape = 0; // 0: square, 1: circle, 2: triangle, 3: star
-
 function getRandomColor() {
     const letters = "0123456789ABCDEF";
     let color = "#";
     for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
-
+        color += letters[Math.floor(Math.random() * 16)];}  // Generate a random color
+    return color;}
 function slideAndChangeShape(element) {
     if (element.style.top === "0px") {
         element.style.top = "100vh";
@@ -30,12 +25,9 @@ function slideAndChangeShape(element) {
         } else {
             element.style.borderRadius = "0%"; // Change back to a square
             element.classList.remove("star");
-            shape = 0;
-        }
+            shape = 0;}
     } else {
-        element.style.top = "0px";
-    }
+        element.style.top = "0px";}  // Slide back to the top
 }
-
 setInterval(() => slideAndChangeShape(slider), 2000); // Change slide and shape every 2 seconds
 setInterval(() => slideAndChangeShape(slider2), 2000); // Change slide and shape every 2 seconds for the second slider
